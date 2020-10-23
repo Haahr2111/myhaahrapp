@@ -11,7 +11,7 @@ const mongoose = require('mongoose');
 
 /**** Configuration ****/
 const app = express();
-const MONGO_URL = process.env.MONGO_URL ; 
+const MONGO_URL = process.env.MONGO_URL||'mongodb://localhost/Questions'; 
 
 async function createServer() {
   // Connect db
