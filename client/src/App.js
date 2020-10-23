@@ -1,4 +1,7 @@
 import React, {useEffect, useState} from 'react';
+import AddQuestion from './AddQuestion';
+import Questions from "./Questions";
+
 const API_URL = process.env.REACT_APP_API;
 
 function App() {
@@ -14,17 +17,19 @@ function App() {
     getData();
   }, []); 
 
+  function addQuestion(name, content){
+    console.log(name, content);
+    
+    const newQuestion = {
+      name: name,
+      content: content
+    }   
+  }
   return (
     <>
       <h1>MERN App!</h1>
       <p>Data from server: {data}</p>
-      <form>
-        <label>Subject: </label>
-        <input type="text"></input>
-        <label>Your Question: </label>
-        <input type="text"></input> 
-        <input type="submit" value="Submit"></input>
-      </form>
+     <Questions addQuestion={addQuestion()}></Questions>
     </>
   );
 }

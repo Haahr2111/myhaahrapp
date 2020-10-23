@@ -1,4 +1,4 @@
-const { request } = require("express");
+
 
 module.exports = (DB) => {
   const express = require("express");
@@ -15,10 +15,10 @@ module.exports = (DB) => {
     res.json(question);
   });
 
-  router.post('/', async (req, res) => {
+  router.post('/test', async (req, res) => {
     // TODO: Implement!
-    const question = request.body.question;
-    res.json({msg: "You sent me "+ question});
+    const name = req.body.name;
+    res.json({msg: name + ' has been added'});
   });
 
   return router;
