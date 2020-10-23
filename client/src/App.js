@@ -18,13 +18,13 @@ function App() {
     <>
       <h1>MERN App!</h1>
       <p>Data from server: {data}</p>
-     <form>
-       <label>Subject</label>
-       <input id="subject" type="text" required></input>
-       <label>Your Question:</label>
-       <input id="question" type="text" required></input>
-       <input id="submitQuestion" type="submit" required></input>
-     </form>
+      <form>
+        <label>Subject: </label>
+        <input type="text"></input>
+        <label>Your Question: </label>
+        <input type="text"></input> 
+        <input type="submit" value="Submit"></input>
+      </form>
     </>
   );
 }
