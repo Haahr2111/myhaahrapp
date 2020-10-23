@@ -9,7 +9,7 @@ module.exports = (mongoose) => {
       try {
         return await questionModel.find();
       } catch (error) {
-        console.error("getKitten:", error.message);
+        console.error("getQuestion:", error.message);
         return {};
       }
     }
