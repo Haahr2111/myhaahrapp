@@ -1,6 +1,16 @@
 module.exports = (mongoose) => {
-    const questionSchema = new mongoose.Schema({
-      name: String
+   
+  const answersSchema = new.mongoose.Schema({
+name: String,
+content: String,
+score: Number 
+
+  });
+
+  const questionSchema = new mongoose.Schema({
+      name: String,
+      content: String,
+      answers:[answersSchema]
     });
   
     const questionModel = mongoose.model('question', questionSchema);
