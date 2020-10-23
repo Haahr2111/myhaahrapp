@@ -29,7 +29,7 @@ module.exports = (mongoose) => {
     }
   
     async function bootstrap(count = 10) {
-      let l = (await getQuestion()).length;
+      let l = (await getQuestion().length);
       console.log("Question collection size:", l);
   
       if (l === 0) {
