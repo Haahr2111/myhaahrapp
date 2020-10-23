@@ -1,3 +1,5 @@
+const { request } = require("express");
+
 module.exports = (DB) => {
   const express = require("express");
   const router = express.Router();
@@ -15,7 +17,8 @@ module.exports = (DB) => {
 
   router.post('/', async (req, res) => {
     // TODO: Implement!
-    res.json({msg: "Not implemented :("});
+    const question = request.body.question;
+    res.json({msg: "You sent me "+ question});
   });
 
   return router;
