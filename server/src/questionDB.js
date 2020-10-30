@@ -35,8 +35,11 @@ score: Number
       }
     }
   
-    async function createQuestion(text) {
-      let question = new questionModel({name: text});
+    async function createQuestion(name, content) {
+      let question = new questionModel({
+        name: name,
+        content: content
+      });
       return question.save();
     }
   

@@ -15,9 +15,11 @@ module.exports = (DB) => {
     res.json(question);
   });
 
-  router.post('/test', async (req, res) => {
+  router.post('/questions', async (req, res) => {
     // TODO: Implement!
     const name = req.body.name;
+    const content = req.body.content;
+    DB.createQuestion(name, content)
     res.json({msg: name + ' has been added'});
   });
 
