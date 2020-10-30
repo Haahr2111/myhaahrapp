@@ -5,13 +5,13 @@ module.exports = (DB) => {
   const router = express.Router();
 
   /**** Routes ****/
-  router.get('/', async (req, res) => {
-    const questions = await questionDB.getQuestions(); 
+  router.get('/questions', async (req, res) => {
+    const questions = await DB.getQuestions(); 
     res.json(questions);
   });
 
-  router.get('/:id', async (req, res) => {
-    const question = await questionDB.getQuestion(req.params.id);
+  router.get('/questions/:id', async (req, res) => {
+    const question = await DB.getQuestion(req.params.id);
     res.json(question);
   });
 
