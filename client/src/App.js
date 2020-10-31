@@ -45,6 +45,7 @@ function App() {
     console.log(data);
   
   }
+  
  //<Question path="/question/:id" getQuestion={getQuestion}></Question>
   return (
     <>

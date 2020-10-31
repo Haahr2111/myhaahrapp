@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from "@reach/router";
 
 import AddQuestion from "./AddQuestion.js";
+
 function Questions(props){
 const questionData = props.questionData;
 
@@ -11,8 +12,12 @@ const questionData = props.questionData;
       <li>{element.name}</li>
     </Link>
     )
+  
 }
   const list = questionData.map(mapFunction);
+  
+
+  
     return(
         <>
         <h3>Questions</h3>

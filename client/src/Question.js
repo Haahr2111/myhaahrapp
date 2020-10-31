@@ -1,12 +1,18 @@
 import React from "react";
+import {Link, useParams} from "@reach/router";
 
 function Question(props) {
+
     const id = props._id;
-    const q = props.getQuestion(id);
+    const question = props.getQuestion(id);
+    
+   if (question===undefined) return null
+
     return (
 <>
-<h3>{q.name}</h3>
-      <p>{q.content}</p>
+<h3>{question.name}</h3>
+      <p>{question.content}</p>
+      <Link to="/">Back</Link>
 </>
     )
 }
