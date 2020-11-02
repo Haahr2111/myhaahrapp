@@ -13,6 +13,8 @@ function Question(props) {
 <>
 <h3>{question.name}</h3>
       <p>{question.content}</p>
+    <p><b>Answers</b></p>
+    <p>{question.answers}</p>
      <AddAnswer addAnswer={props.addAnswer}></AddAnswer>
       <Link to="/">Back</Link>
 </>
