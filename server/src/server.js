@@ -19,7 +19,7 @@ async function createServer() {
 
   // Create data
   const questionDB = require('./questionDB')(mongoose);
-  await questionDB.bootstrap();
+ 
   
   // Require routes
   const routes = require("./routes")(questionDB); // Inject mongoose into routes module

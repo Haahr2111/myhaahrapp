@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import AddQuestion from './AddQuestion.js';
 import Questions from "./Questions";
 import Question from "./Question";
+import AddAnswer from "./AddAnswer"
 import {Router} from "@reach/router";
 
 const API_URL = process.env.REACT_APP_API;
@@ -31,6 +32,7 @@ function App() {
       name: name,
       content: content
     }  
+
     //define post url 
     const url = `${API_URL}/questions`;
     //use fetch
@@ -45,14 +47,36 @@ function App() {
     console.log(data);
   
   }
+   async function addAnswer(id, answer, score){
+    console.log(answer, score);
+    
+    //create object
+    const newAnswer = {
+      answer: answer,
+      score: score
+    }  
+    
+    //define post url 
+    const url = `${API_URL}/answers`;
+    //use fetch
+    const response = await fetch(url, {
+      method: 'POST', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newAnswer),
+    });
+    const data = await response.json();
+    console.log(data);
   
+  }
  //<Question path="/question/:id" getQuestion={getQuestion}></Question>
   return (
     <>
     <Router>
      
      <Questions path="/" questionData={data} addQuestion={addQuestion}></Questions>
-     <Question path="/question/:id" getQuestion={getQuestion}></Question>
+     <Question path="/question/:id" getQuestion={getQuestion} addAnswer={addAnswer}></Question>
      </Router>
     </>
   );

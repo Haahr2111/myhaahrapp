@@ -23,5 +23,12 @@ module.exports = (DB) => {
     res.json({msg: name + ' has been added'});
   });
 
+  router.post('/answers', async (req, res) => {
+    // TODO: Implement!
+    const answer = req.body.answer;
+    const score = req.body.score;
+    DB.createAnswer(answer, score)
+    res.json({msg: answer + ' has been added'});
+  });
   return router;
 }

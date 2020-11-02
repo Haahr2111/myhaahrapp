@@ -11,7 +11,7 @@ score: Number
       name: String,
       content: String,
       answers: [{
-        content: String,
+        answer: String,
         score: Number }]
     });
   
@@ -42,25 +42,24 @@ score: Number
       });
       return question.save();
     }
-  
-    async function bootstrap(count = 10) {
-      let l = (await getQuestions()).length;
-      console.log("Question collection size:", l);
-  
-      if (l === 0) {
-        let promises = [];
-        for (let i = 0; i < count; i++) {
-          let newQuestion = new questionModel({name: `question number ${i}`});
-          promises.push(newQuestion.save());
-        }
-        return Promise.all(promises);
-      }
+
+    async function createAnswer(id, answer, score) {
+      let question = await getQuestion(id);
+      let Newanswer = ({
+        answer: answer,
+        score: score
+      });
+      question.push(Newanswer);
+      question.save();
+      return question;
     }
+  
+    
   
     return {
       getQuestions,
       getQuestion,
       createQuestion,
-      bootstrap
+     createAnswer
     }
   }
