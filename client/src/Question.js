@@ -6,7 +6,7 @@ function Question(props) {
     const id = props._id;
     const question = props.getQuestion(id);
     
-   if (question===undefined) return null
+   
 
     return (
 <>
