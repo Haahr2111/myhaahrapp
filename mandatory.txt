@@ -1,0 +1,19 @@
+Rasmus Haahr Pedersen - Webudvikling
+Advanced Web Programming 2.semester
+
+
+Heroku:
+
+https://myhaahrapp.herokuapp.com/
+
+Github:
+
+https://github.com/Haahr2111/myhaahrapp.git
+
+
+Note: 
+
+Efter man har tilføjet et spørgsmål, skal man refresh
+siden før det kommer frem. Det samme gør sig gældende
+når man tilføjer et spørgsmål og stemmer på et 
+spørgsmål.
