@@ -26,9 +26,17 @@ module.exports = (DB) => {
   router.post('/answers', async (req, res) => {
     // TODO: Implement!
     const answer = req.body.answer;
-    const score = req.body.score;
-    DB.createAnswer(answer, score)
+    const id = req.body.id;
+    await DB.createAnswer(answer, id)
     res.json({msg: answer + ' has been added'});
   });
+  router.post('/answers/answerScore', async (req, res) => {
+    // TODO: Implement!
+    const questionID = req.body.questionID;
+    const answerID = req.body.answerID;
+    await DB.answerScore(questionID, answerID)
+    res.json({msg: answer + ' has been added'});
+  });
+  
   return router;
 }

@@ -47,13 +47,14 @@ function App() {
     console.log(data);
   
   }
-   async function addAnswer(id, answer, score){
-    console.log(answer, score);
+   async function addAnswer(id, answer){
+    console.log(answer);
     
     //create object
     const newAnswer = {
+      id:id,
       answer: answer,
-      score: score
+
     }  
     
     //define post url 
@@ -68,6 +69,26 @@ function App() {
     });
     const data = await response.json();
     console.log(data);
+  }
+
+  async function answerScore (questionID, answerID) {
+
+    const newScore= {
+      questionID: questionID,
+      answerID: answerID
+    }
+
+   const url=`${API_URL}/answers/answerScore`;
+
+//use fetch
+    const response = await fetch(url, {
+      method: 'POST', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newScore),
+    });
+    const data = await response.json();
   
   }
  //<Question path="/question/:id" getQuestion={getQuestion}></Question>
@@ -76,7 +97,7 @@ function App() {
     <Router>
      
      <Questions path="/" questionData={data} addQuestion={addQuestion}></Questions>
-     <Question path="/question/:id" getQuestion={getQuestion} addAnswer={addAnswer}></Question>
+     <Question path="/question/:id" getQuestion={getQuestion} addAnswer={addAnswer} answerScore={answerScore} ></Question>
      </Router>
     </>
   );
