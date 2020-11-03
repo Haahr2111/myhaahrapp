@@ -13,7 +13,7 @@ function Question(props) {
     const answerList= question.answers.map(e=> {return (
         <>
         <li key={e._id}><p>{e.answer}</p>
-        <button onClick={()=> props.answerScore(id, e._id)}>Vote up</button> <p>Score: {e.score}</p>
+        <button onClick={()=> props.answerScore(id, e._id)}>Upvote</button> <p>Score: {e.score}</p>
         </li>
         </>
         )
