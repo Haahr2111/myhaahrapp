@@ -9,7 +9,7 @@ const API_URL = process.env.REACT_APP_API;
 
 function App() {
   const [data, setData] = useState([]);
-  
+  const [postCount, setPostCount]=useState(0);
   useEffect(() => {
     async function getData() {
       const url = `${API_URL}/questions`;
@@ -18,7 +18,7 @@ function App() {
       setData(data);
     }
     getData();
-  }, []); 
+  }, [postCount]); 
 
   function getQuestion(id) {
     const question = data.find(element => element._id === id);
@@ -26,7 +26,7 @@ function App() {
   }
   async function addQuestion(name, content){
     console.log(name, content);
-    
+    setPostCount(postCount +1);
     //create object
     const newQuestion = {
       name: name,
@@ -49,7 +49,7 @@ function App() {
   }
    async function addAnswer(id, answer){
     console.log(answer);
-    
+    setPostCount(postCount +1);
     //create object
     const newAnswer = {
       id:id,
@@ -72,7 +72,7 @@ function App() {
   }
 
   async function answerScore (questionID, answerID) {
-
+    setPostCount(postCount +1);
     const newScore= {
       questionID: questionID,
       answerID: answerID

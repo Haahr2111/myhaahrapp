@@ -37,6 +37,6 @@ module.exports = (DB) => {
     await DB.answerScore(questionID, answerID)
     res.json({msg: answer + ' has been added'});
   });
-  
+ 
   return router;
 }

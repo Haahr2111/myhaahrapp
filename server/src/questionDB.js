@@ -7,6 +7,11 @@ module.exports = (mongoose) => {
  
    }); */
 
+  // const userSchema = new mongoose.Schema({
+  //   Username: String,
+  //   Password: String
+  // })
+
   const questionSchema = new mongoose.Schema({
     name: String,
     content: String,
@@ -17,6 +22,7 @@ module.exports = (mongoose) => {
   });
 
   const questionModel = mongoose.model('question', questionSchema);
+  // const userModel = mongoose.model('user', userSchema);
 
   async function getQuestions() {
     try {
