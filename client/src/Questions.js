@@ -4,6 +4,7 @@ import {Link} from "@reach/router";
 import AddQuestion from "./AddQuestion.js";
 
 function Questions(props){
+  
 const questionData = props.questionData;
 
     const mapFunction = element => {
